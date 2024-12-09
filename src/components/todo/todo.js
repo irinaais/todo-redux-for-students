@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './todo.css';
 import TodoField from './todoField/todo-field';
 import { useState } from 'react';
+import { addTodoAction } from '../../store';
 const TodoList = () => {
     const [newTodo, setNewTodo] = useState('');
 
@@ -10,7 +11,7 @@ const TodoList = () => {
 
     const addTodo = () => {
         if (newTodo !== '') {
-            dispatch({ type: 'ADD_TODO', text: newTodo });
+            dispatch(addTodoAction(newTodo));
             setNewTodo('');
         }
     };
